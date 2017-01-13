@@ -1,4 +1,5 @@
 from data import locations
+from data import descriptions
 
 directions = {
     'west': (-1, 0),
@@ -25,5 +26,8 @@ while True:
     new_position = valid_directions.get(direction)
     if new_position:
         position = new_position
+        print descriptions[position]
+        print "This is the map :\nH P\nL M"
+
     else:
         print "sorry, that isn't a valid direction"

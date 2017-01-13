@@ -1,5 +1,6 @@
 from data import locations
 from data import descriptions
+from data import room_object
 
 directions = {
     'west': (-1, 0),
@@ -9,9 +10,11 @@ directions = {
 }
 
 position = (0, 0)
+inventory = []
 
 while True:
     location = locations[position]
+
     print 'you are at the %s' % location
 
     valid_directions = {}
@@ -24,10 +27,20 @@ while True:
 
     direction = raw_input('which direction do you want to go?\n')
     new_position = valid_directions.get(direction)
+
     if new_position:
         position = new_position
+        inventory.append(room_object[position])
         print descriptions[position]
-        print "This is the map :\nH P\nL M"
-
     else:
         print "sorry, that isn't a valid direction"
+
+    for i in inventory:
+        print "You aquaired : a " + i
+
+    print "This is the map :\nH P\nL M"
+
+
+
+
+
